@@ -1,0 +1,35 @@
+name: Build Firmware
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PlatformIO and esptool
+        run: pip install platformio esptool
+
+      - name: Build firmware
+        run: pio run
+
+      - name: Merge into single flashable binary
+        run: |
+          python -m esptool --chip esp32c6 merge_bin \
+            -o .pio/build/esp32-c6-devkitc-1/merged-firmware.bin \
+            0x0 .pio/build/esp32-c6-devkitc-1/bootloader.bin \
+            0x8000 .pio/build/esp32-c6-devkitc-1/partitions.bin \
+            0x10000 .pio/build/esp32-c6-devkitc-1/firmware.bin
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merged-firmware
+          path: .pio/build/esp32-c6-devkitc-1/merged-firmware.bin

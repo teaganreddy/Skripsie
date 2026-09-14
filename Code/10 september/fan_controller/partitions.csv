@@ -1,0 +1,28 @@
+# Name,     Type, SubType, Offset,   Size,     Flags
+nvs,        data, nvs,     0x9000,   0x5000,
+phy_init,   data, phy,     0xe000,   0x1000,
+factory,    app,  factory, 0x10000,  0x1C0000,
+littlefs,   data, spiffs,  0x1D0000, 0x230000,
+#
+# 4 MB flash, no OTA (there is only one app slot, so an OTA image would have
+# nowhere to land -- reflash over USB instead).
+#
+#   factory   1.75 MB   app. A build with WiFi + AsyncWebServer + SimpleFOC
+#                       lands around 1.1-1.3 MB, so this leaves headroom for
+#                       the ESP-NOW work in stage 2.
+#   littlefs  2.19 MB   web bundle + presets + user uploads.
+#
+# The build prints "Partition has name 'littlefs' which is a partition subtype,
+# but this partition has non-matching type 0x1 and subtype 0x82." That warning
+# is expected and harmless: the NAME is littlefs, the SUBTYPE is spiffs (0x82),
+# which is what the flashing tools look for. esp_littlefs mounts by label, not
+# by subtype -- but note that Arduino's LittleFS.begin() defaults to the label
+# "spiffs", so content.cpp passes "littlefs" explicitly. Without that the
+# filesystem never mounts and the web page comes up blank.
+#
+# Sizing note: the flashed bundle is ~842 KB (793 KB of preset .povf, 33 KB of
+# gzipped UI, 16 KB of thumbnails), leaving ~1.35 MB free for uploads. That
+# matters because the website's MAX_FRAMES of 64 produces a 1080 KB .povf --
+# with the originally-proposed 1.4 MB filesystem, the largest upload the UI
+# can generate would not have fit. See freeBytes() in library.cpp, which
+# rejects an upload that will not fit rather than filling the disk mid-write.

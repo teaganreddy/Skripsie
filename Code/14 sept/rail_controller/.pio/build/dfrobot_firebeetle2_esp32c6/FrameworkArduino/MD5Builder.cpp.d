@@ -1,0 +1,20 @@
+.pio/build/dfrobot_firebeetle2_esp32c6/FrameworkArduino/MD5Builder.cpp.o: \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.cpp \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/HEXBuilder.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/newlib/platform_include/ctype.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/newlib/platform_include/stdio.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/MD5Builder.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_system/include/esp_system.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_common/include/esp_err.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_common/include/esp_compiler.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_common/include/esp_attr.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_common/include/esp_bit_defs.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_common/include/esp_idf_version.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32-libs/esp32c6/include/esp_rom/include/esp_rom_md5.h \
+ /Users/teaganreddy/.platformio/packages/framework-arduinoespressif32/cores/esp32/HashBuilder.h
